@@ -1,10 +1,10 @@
 # Cyclistic Bike-Share Customer Analysis
-This project presents a comprehensive data analysis of Cyclistic, a fictional bike-share company based in Chicago, with the goal of uncovering valuable insights into customer behavior and usage patterns. By thoroughly examining real-world trip data, the analysis aims to identify key trends and opportunities for business growth and service optimization. The primary objective is to provide actionable recommendations that will enable Cyclistic to enhance its user experience, drive customer engagement, and strengthen its impact within the community. Through meticulous data exploration and interpretation, this project aspires to support Cyclistic in making informed, data-driven decisions that improve both operational efficiency and overall customer satisfaction.
+This project presents a comprehensive data analysis of Cyclistic, a fictional bike-share company based in Chicago, with the goal of uncovering valuable insights into customer behavior and usage patterns. By thoroughly examining real-world trip data, the analysis aims to identify key trends and opportunities for business growth and service optimization. The primary objective is to provide actionable recommendations that will enable Cyclistic to enhance its user experience, drive customer engagement, and strengthen its impact within the community. Through meticulous data exploration and interpretation, this project aspires to support Cyclistic in making informed data-driven decisions.
 
 ## INDEX 
 1.- Scenario<br>
 2.- Ask <br>
-3.-Prepare <br>
+3.- Prepare <br>
 4.- Process<br>
 5.- Analyze <br>
 6.- Share <br>
@@ -23,10 +23,10 @@ To achieve this, I have been asked to analyze usage trends, identify key factors
 By revealing these behavioral trends, the company hopes to tailor its marketing and operational strategies, ultimately driving the conversion of more Casual Riders into Annual Members. My analysis will serve as a data-driven foundation for these strategic decisions.<br>
 
 ## 💡 ASK:
-Business Task: The business task is to analyze the patterns of Members and non-Members to understand their behavior, preferences, and interactions with the company. This analysis will help identify key factors that differentiate Members from Casual Riders,  to develop a strategy to convert non-Members into Members.
+Business Task: The business task is to analyze the patterns of Members and non-Members to understand their behavior, preferences, and interactions with the company. I will help identify key factors that differentiate Members from Casual Riders in order to develop a strategy to convert non-Members into Members.
 
 ## 📚 PREPARE
-How is the dataset: This dataset is provided internally by the company, Cyclistic. You can find the data source here: [Insert your website link here]. 
+How is the dataset: This dataset is provided internally by the company, Cyclistic. You can find the data source here: [Source](https://divvy-tripdata.s3.amazonaws.com/index.html)<br> 
 In the data source we can find  multiple CSV files, each representing data for one month from January 2020 to August 2024. There are 15 variables included in each file that capture various aspects of bike and scooter rides. <br>
 
 Description of each variable:<br>
@@ -48,17 +48,19 @@ Description of each variable:<br>
 
 ROCCC Approach: <br>
 (R)eliability: the dataset includes information on both Members and Casual users. This data is provided directly by Cyclistic, ensuring its accuracy and trustworthiness. As an internal dataset, it reflects the company's operations and user interactions, providing a solid foundation for analysis.<br>
-(O)riginality the dataset is original and derived from internal sources within Cyclistic, making it unique to the organization. <br>
+(O)riginality: the dataset is original and derived from internal sources within Cyclistic, making it unique to the organization. <br>
 (C)omprehensiveness: with 15 variables covering a wide range of data points, the dataset provides a comprehensive view of user interactions with Cyclistic's products. <br>
 (C)urrentness: the dataset spans from January 2020 to August 2024, with updates occurring monthly.<br>
 (C)ited: this dataset is provided by Cyclistic. <br>
 
 ‼️Data Limitations: The dataset lacks demographic variables, limiting user segmentation analysis, and analyzing only one month's data may introduce seasonal biases. <br>
 
-👩🏻‍⚕️ How I dealt with Data Limitations: I would recommend that the company begin collecting demographic variables and use Excel's Power Query tools to merge data into a single spreadsheet encompassing 12 months of information from September 2023 to August 2024.<br>
+👩🏻‍⚕️ How I dealt with Data Limitations: I would recommend that the company begin collecting demographic variables and used Excel's Power Query tools to merge data into a single spreadsheet encompassing 12 months of information from September 2023 to August 2024.<br>
 
 ## ⚒️ PROCESS
-I first examined the dataset to understand the context of each variable and gain a comprehensive overview. Next, I used data filters to identify and address null values, followed by removing duplicates. Initially, I had 1,029,750 observations, but after cleaning, I retained 1,016,175 observations, eliminating 13,575 that could skew the analysis. I then ensured all data was in the correct format. After familiarizing myself with each variable's context, I corrected errors, such as in latitude and longitude values, which may have resulted from data manipulation and downloads. Knowing the type of analysis I intended to perform, I added several new columns to the dataset. I calculated the “day of the week” for each bike ride and computed the “distance” traveled in meters for each observation. Additionally, I calculated the “ride length” in minutes using the time variables previously defined, and created a column for the “season” when the service was used. Furthermore, I formatted the date and time for both the start and end of rides in different styles to facilitate analysis in various software applications. Finally, I sorted the data by the start date of the rides.<br>
+I first examined the dataset to understand the context of each variable and gain a comprehensive overview. Next, I used data filters to identify and address null values, followed by removing duplicates. Initially, I had 1,029,750 observations, but after cleaning, I retained 1,016,175 observations, eliminating 13,575 that could skew the analysis!! I then ensured all data was in the correct format. After familiarizing myself with each variable's context, I corrected errors, such as in latitude and longitude values, which may have resulted from data manipulation and downloads. Knowing the type of analysis I intended to perform, I added several new columns to the dataset. I calculated the “day of the week” for each bike ride and computed the “distance” traveled in meters for each observation. Additionally, I calculated the “ride length” in minutes using the time variables previously defined, and created  new columns for the "months" and “season” when the service was used. <br>
+
+You can download the raw data called Cyclistic DataBase (clean) in the Database folder!
 
 Tools used: Microsoft Excel 
 
@@ -135,6 +137,8 @@ sd(DataSet$Minutes_num)
 ```
 For ride length, the average duration is 15.26 minutes, with a standard deviation of 34,84 minutes,
 that shows that ride distances are relatively consistent and clustered around the mean, reflecting a more uniform usage pattern among the customers.
+
+Tools used: R-Studio 
 
 ### ANALYSIS 
 Now, to analyze the differences between the two user types, I will transition to SQL, as it is more effective for handling large datasets.
@@ -252,10 +256,14 @@ g) Finally, I will use the starting points of bike journeys to understand where 
 
 Starting points reveals that both user groups predominantly begin their rides in the beach zone of Chicago. However, a notable distinction emerges in the dispersion of their chosen locations: members exhibit a wider spread of starting points across the map, suggesting a greater diversity in their riding destinations. In contrast, casual users are more concentrated in the beach area, indicating a preference for recreational rides in this specific location. 
 
+Tools used: SQL (Big Query); Microsoft Excel and Tableau. 
+
 ### HYPOTHESIS TESTING 
 After completing the initial analysis, I decided to conduct some hypothesis testing using contingency tables and ANOVA to assess the significance of the differences in means and the dependency of the variables. Specifically, I utilized the Chi-Square Test for the contingency tables and One-Way ANOVA to analyze the data. The results of all tests indicated significant findings, reinforcing the insights gained from the initial analysis.
 
 This additional step has provided a deeper understanding of the data, and I plan to continue with this analysis to explore the implications further. This rigorous approach adds an extra layer of validity to our conclusions and enhances our overall understanding of user behavior.
+
+Tools used: JMP PRO 17
 
 ### CONCLUSION
 To sum up, the analysis highlights several key differences between casual users and members. Casual users primarily utilize bikes for leisure activities, favoring weekend rides and specific locations like the beach zone. Their riding patterns are more dispersed throughout the day, reflecting a focus on enjoyment and relaxation. In contrast, members tend to use bikes more for commuting purposes, with significant spikes in activity during weekday mornings and evenings. They demonstrate a greater diversity in starting points, indicating a broader range of destinations.
@@ -268,6 +276,8 @@ Taking all these insights into account, I have created an interactive dashboard 
 <p align="center">
 <img width="1199" alt="Captura de pantalla 2024-10-23 a las 22 19 13" src="https://github.com/user-attachments/assets/ee755ad1-2edd-41b0-8c96-6d83b28cac8a">
 </p>
+
+Tools used: Tableau 
 
 ### 👀 ACT 
 a) Targeted Promotions for Weekend Riders:<br>
@@ -297,7 +307,7 @@ The key performance indicators (KPIs) to track for this project include:<br>
 
 This phase will be crucial in determining the uptake of new membership plans and whether the newly converted users maintain or increase their ride frequency over time.<br>
 
-### 🪩 REFLECTIONS ON THE CASE STUDY 
+### 🙇‍♀️ REFLECTIONS ON THE CASE STUDY 
 Reflecting on this project, I found it to be a highly engaging and insightful experience. It allowed me to delve into various aspects of user behavior and data analysis, which not only heightened my interest but also helped me develop and consolidate valuable skills. Through this process, I enhanced my analytical abilities, learned how to interpret data effectively, and gained practical experience in formulating actionable strategies.
 
 I look forward to engaging in similar projects in the future, as they provide an excellent opportunity for continuous learning and professional growth. Each experience contributes to my understanding of user dynamics and helps me better navigate real-world challenges in the field.
