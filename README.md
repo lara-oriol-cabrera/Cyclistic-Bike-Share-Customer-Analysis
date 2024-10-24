@@ -271,7 +271,8 @@ To sum up, the analysis highlights several key differences between casual users 
 However, to enhance the depth of this analysis, I would recommend that the company continue to collect data, particularly demographic information that is currently missing. This additional data would allow for a more comprehensive understanding of user behaviors and preferences, ultimately leading to more effective strategies tailored to each group’s needs.
 
 ### 🖼️ SHARE
-Taking all these insights into account, I have created an interactive dashboard that allows for a comprehensive exploration of the data. This dashboard enables users to visualize key trends and patterns related to both casual users and members, facilitating a deeper understanding of their behaviors and preferences. With features that allow for filtering and drilling down into specific metrics, the dashboard serves as a valuable tool for ongoing analysis and decision-making.
+Taking all these insights into account, I have created an interactive dashboard that allows for a comprehensive exploration of the data. This dashboard enables users to visualize key trends and patterns related to both casual users and members, facilitating a deeper understanding of their behaviors and preferences. With features that allow for filtering and drilling down into specific metrics, the dashboard serves as a valuable tool for ongoing analysis and decision-making.<br>
+[Tableau](https://prod-uk-a.online.tableau.com/#/site/laraoricab-072e17f9c4/redirect_to_view/7761462)
 
 <p align="center">
 <img width="1199" alt="Captura de pantalla 2024-10-23 a las 22 19 13" src="https://github.com/user-attachments/assets/ee755ad1-2edd-41b0-8c96-6d83b28cac8a">
