@@ -66,7 +66,7 @@ Tools used: Microsoft Excel
 
 ## 📈 ANALYSIS
 ### DESCRIPTIVE ANALYSIS
-In this section, I will conduct a descriptive analysis to provide a comprehensive overview of the data related to Cyclistic's bike usage patterns. This analysis aims to summarize key statistics and trends, helping us understand the characteristics of different user groups, including casual riders and members. 
+In this section, I will conduct a descriptive analysis in R-Studio to provide a comprehensive overview of the data related to Cyclistic's bike usage patterns. This analysis aims to summarize key statistics and trends, helping us understand the characteristics of the sample.  
 
 a) Members and Casuals  
 ```r
@@ -77,7 +77,7 @@ pie(prop.table(table(DataSet$Member_Casual)), main = "Distribution for Members a
 <p align="center">
 <img width="400" alt="Captura de pantalla 2024-10-24 a las 9 46 42" src="https://github.com/user-attachments/assets/0cd42460-9512-4f6d-91b5-ed686411f508">
 </p>
-From the analysis of the distribution we can see that the most active user type are the members, being a total of 69,68%, making casuals are a 30,31%. 
+From the analysis of the distribution we can see that the most active user type are the Members, being a total of 69,68%, making Casuals a 30,31% of the distribution. 
 
 b) Rideable type 
 ```r
@@ -88,7 +88,7 @@ barplot(table(DataSet$Rideable_Type), main="Distribution for Rideable Type", xla
 <p align="center">
 <img width="457" alt="Captura de pantalla 2024-10-11 a las 19 16 55" src="https://github.com/user-attachments/assets/31f21c6d-3cb0-4e89-bb1c-a94538442d85">
 </p>
-In our analysis of rideable types, we observe that the classic bike is the most utilized option, comprising 65.83% of total rides, while the electric scooter accounts for only 0.63%. It’s important to note that the electric scooter was introduced in August 2024, which may explain its lower usage at this stage.
+In the analysis of rideable types, I observed that the classic bike is the most utilized option, comprising 65.83% of total rides, while the electric scooter accounts for only 0.63%. It’s important to note that the electric scooter was introduced in August 2024, which may explain its lower usage at this stage.
 
 c) Season
 ```r
@@ -121,29 +121,28 @@ barplot(table(DataSet$Hour), main="Distribution for Hours", xlab="Hours", col="l
 <p align="center">
 <img width="427" alt="Captura de pantalla 2024-10-23 a las 19 05 04" src="https://github.com/user-attachments/assets/bbfd647a-4014-4918-84a8-312e31cda1f9">
 </p>
-When we look at the time of day, the peak hour for rides is 5:00 PM, capturing 10.50% of the total, whereas the least activity occurs at 3:00 AM, with just 0.2%.
+When we look at the time of day, the peak hour for rides is 17:00 PM, capturing 10.50% of the total, whereas the least activity occurs at 3:00 AM, with just 0.2%.
 
 f) Ride Distance in Meters
 ```r
 mean(DataSet$Distance_Meters)
 sd(DataSet$Distance_Meters)
 ```
-Regarding distance, the average ride distance is 2003.4 meters, with a standard deviation of 1817.54 meters, indicating significant variability in ride distances, suggesting diverse usage patterns among riders.
+Regarding distance, the average ride distance is 2003.4 and a standard deviation of 1817.54 indicate significant variability in the data set.
 
 g) Ride Length in Minutes 
 ```r
 mean(DataSet$Minutes_num)
 sd(DataSet$Minutes_num)
 ```
-For ride length, the average duration is 15.26 minutes, with a standard deviation of 34,84 minutes,
-that shows that ride distances are relatively consistent and clustered around the mean, reflecting a more uniform usage pattern among the customers.
+For ride length, the average duration is 15.26 and the standard deviation is 34,84, suggesting that they may be a large dispersion of the data points.  
 
 Tools used: R-Studio 
 
 ### ANALYSIS 
 Now, to analyze the differences between the two user types, I will transition to SQL, as it is more effective for handling large datasets.
 
-a) Now, I will analyze the differences in rideable types between the two user types.
+a) First, I will analyze the differences in rideable types between the two user types.
 ```SQL
 SELECT COUNT(Ride_Id) AS CountRides,
 Member_Casual,
@@ -159,9 +158,9 @@ Rideable_Type
 <img width="404" alt="Captura de pantalla 2024-10-24 a las 10 16 25" src="https://github.com/user-attachments/assets/e4862fd2-eae1-41e6-8c5e-eadf5bc9ba81">
 </p>
 
-The analysis reveals that the classic bike is the most commonly used rideable type for both user groups, indicating a strong preference for this option across the board. Conversely, the electric scooter emerges as the least utilized choice for both groups, suggesting limited adoption at this stage. 
+The analysis reveals that the classic bike is the most commonly used rideable type for both user groups, indicating a strong preference for this option across the board. Conversely, the electric scooter emerges as the least utilized choice for both groups, taking into account that as said previously it was introduced in August 2024. 
 
-b) In this section, we will explore the duration of rides for both user types. Understanding how long each group spends on their rides can provide valuable insights into their riding habits and preferences. 
+b) Moreover, I will explore the duration of rides for both user types. Understanding how long each group spends on their rides can provide valuable insights into their riding habits and preferences. 
 
 ```SQL
 SELECT AVG(Formatted_Ride_Length) AS Average Ride_Length,
@@ -175,7 +174,7 @@ GROUP BY Member_Casual
 <p align="center">
 <img width="602" alt="Captura de pantalla 2024-10-23 a las 20 49 26" src="https://github.com/user-attachments/assets/fe8335ed-403a-4e2b-8443-20f2970abc67">
 </p>
-In conclusion, the data indicates that casual users spend significantly more time on rides, averaging 22 seconds, compared to members, who average only 12 seconds. This difference suggests that casual users may be engaging in longer or more leisurely rides, while members likely prioritize efficiency and quicker trips. 
+In conclusion, the data indicates that casual users spend significantly more time on rides, averaging 22 minutes, compared to members, who average  12 minutes. This difference suggests that casual users may be engaging in longer or more leisurely rides, while members likely prioritize efficiency and quicker trips. 
 
 c) After noting that casual users spend more time on their rides, while members tend to take shorter trips, we will now examine the distances traveled by both groups. 
 ```SQL
@@ -192,7 +191,7 @@ GROUP BY Member_Casual
 </p>
 While the ride meter indicates that both user groups travel similar distances, the observation that casual users spend more time on their rides suggests a potential hypothesis: casual users may be engaging in more leisurely journeys, whereas members could be favoring more point-to-point trips. 
 
-d) Now, I will analyze trip patterns based on seasonal variations. Understanding how ride frequency and duration change with the seasons can provide valuable insights into user behavior and preferences throughout the year. 
+d) Now, I will analyze trip patterns based on seasonal variations. Knowing how ride frequency and duration change with the seasons can provide valuable insights into user behavior and preferences throughout the year. 
 ```SQL
 SELECT COUNT(Ride_Id) AS Rides,
 Mmeber_casual,
@@ -210,7 +209,7 @@ Season
 
 Data reveals distinct seasonal preferences between user groups: casual users predominantly favor summer for their rides, while members show a preference for winter. This divergence suggests that casual riders may be more inclined to take advantage of favorable weather conditions, while members might engage in riding year-round, possibly for commuting or consistent activity.
 
-e) Moreover, I will explore how trip patterns vary by day of the week. Recognizing that user behavior may fluctuate throughout the week, we aim to analyze the frequency and duration of rides on different days. 
+e) Also, I will explore how trip patterns vary by day of the week. Recognizing that user behavior may fluctuate throughout the week, we aim to analyze the frequency and duration of rides on different days. 
 ```SQL
 SELECT COUNT(Ride_Id),
 Member_Casual,
@@ -228,7 +227,7 @@ Day_week
 
 My analysis indicates that casual users significantly increase their rides on weekends, with Saturday being their peak day. In contrast, members demonstrate a stronger preference for riding during weekdays, with Wednesdays being the most active day for this group. These patterns highlight the differing motivations and riding behaviors between casual users and members, suggesting that casual riders may be engaging in leisure activities, while members likely use rides for commuting or other weekday purposes.
 
-f) Furthermore, I will also examine how ride patterns vary by hour of the day. Analyzing the timing of rides can provide valuable insights into user behavior, revealing peak usage times and identifying trends related to commuting, leisure, or other activities. 
+f) Now, I will also examine how ride patterns vary by hour of the day. Analyzing the timing of rides can provide valuable insights into user behavior, revealing peak usage times and identifying trends related to commuting, leisure, or other activities. 
 ```SQL
 SELECT COUNT(Ride_Id) AS Rides,
 Hour_Started,
@@ -244,7 +243,7 @@ Hour_Started
 <img width="603" alt="Captura de pantalla 2024-10-23 a las 20 55 01" src="https://github.com/user-attachments/assets/d93472c6-a00e-4b4a-854b-0a44c2ad3890">
 </p>
 
-In conclusion, ride patterns throughout the day reveals that casual users tend to have a more dispersed riding schedule, engaging at various times without distinct peaks. In contrast, member users exhibit two significant spikes in activity, particularly at 8 AM and 5 PM. These times likely correspond to common commuting hours, indicating that members may primarily use rides for practical purposes. 
+In conclusion, ride patterns throughout the day reveals that casual users tend to have a more dispersed riding schedule, engaging at various times without distinct peaks. In contrast, member users exhibit two significant spikes in activity, particularly at 8:00 AM and 17:00 PM. These times likely correspond to common commuting hours, indicating that members may primarily use rides for practical purposes. 
 
 g) Finally, I will use the starting points of bike journeys to understand where users prefer to begin their rides. By examining the stations chosen by both casual users and members, we can gain insights into travel patterns, popular destinations, and potential factors influencing their choices. 
 <p align="center">
@@ -266,7 +265,7 @@ This additional step has provided a deeper understanding of the data, and I plan
 Tools used: JMP PRO 17
 
 ### CONCLUSION
-To sum up, the analysis highlights several key differences between casual users and members. Casual users primarily utilize bikes for leisure activities, favoring weekend rides and specific locations like the beach zone. Their riding patterns are more dispersed throughout the day, reflecting a focus on enjoyment and relaxation. In contrast, members tend to use bikes more for commuting purposes, with significant spikes in activity during weekday mornings and evenings. They demonstrate a greater diversity in starting points, indicating a broader range of destinations.
+To sum up, the analysis highlights several key differences between Casual users and Members. Casual users primarily utilize bikes for leisure activities, favoring weekend rides and specific locations like the beach zone. Their riding patterns are more dispersed throughout the day, reflecting a focus on enjoyment and relaxation. In contrast, members tend to use bikes more for commuting purposes, with significant spikes in activity during weekday mornings and evenings. They demonstrate a greater diversity in starting points, indicating a broader range of destinations.
 
 However, to enhance the depth of this analysis, I would recommend that the company continue to collect data, particularly demographic information that is currently missing. This additional data would allow for a more comprehensive understanding of user behaviors and preferences, ultimately leading to more effective strategies tailored to each group’s needs.
 
