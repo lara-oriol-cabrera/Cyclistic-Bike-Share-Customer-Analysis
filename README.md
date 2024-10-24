@@ -60,7 +60,7 @@ ROCCC Approach: <br>
 ## ⚒️ PROCESS
 I first examined the dataset to understand the context of each variable and gain a comprehensive overview. Next, I used data filters to identify and address null values, followed by removing duplicates. Initially, I had 1,029,750 observations, but after cleaning, I retained 1,016,175 observations, eliminating 13,575 that could skew the analysis!! I then ensured all data was in the correct format. After familiarizing myself with each variable's context, I corrected errors, such as in latitude and longitude values, which may have resulted from data manipulation and downloads. Knowing the type of analysis I intended to perform, I added several new columns to the dataset. I calculated the “day of the week” for each bike ride and computed the “distance” traveled in meters for each observation. Additionally, I calculated the “ride length” in minutes using the time variables previously defined, and created  new columns for the "months" and “season” when the service was used. <br>
 
-🆘 I apologize for the inconvenience, but the database is quite large and cannot be shared directly at this time. We are actively working on a solution to address this issue and appreciate your patience. Thank you for your understanding!
+🆘 I apologize for the inconvenience, but the database is quite large and cannot be shared directly at this time. I'm actively working on a solution to address this issue and appreciate your patience. Thank you for your understanding!
 
 Tools used: Microsoft Excel 
 
