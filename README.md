@@ -256,7 +256,7 @@ g) Finally, I will use the starting points of bike journeys to understand where 
 
 Starting points reveals that both user groups predominantly begin their rides in the beach zone of Chicago. However, a notable distinction emerges in the dispersion of their chosen locations: members exhibit a wider spread of starting points across the map, suggesting a greater diversity in their riding destinations. In contrast, casual users are more concentrated in the beach area, indicating a preference for recreational rides in this specific location. 
 
-Tools used: SQL (Big Query); Microsoft Excel and Tableau. 
+Tools used: SQL (Big Query), Microsoft Excel and Tableau. 
 
 ### HYPOTHESIS TESTING 
 After completing the initial analysis, I decided to conduct some hypothesis testing using contingency tables and ANOVA to assess the significance of the differences in means and the dependency of the variables. Specifically, I utilized the Chi-Square Test for the contingency tables and One-Way ANOVA to analyze the data. The results of all tests indicated significant findings, reinforcing the insights gained from the initial analysis.
